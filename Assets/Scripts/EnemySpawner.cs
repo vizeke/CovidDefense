@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public float EnemyGap = 3;
-    // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
-    public GameObject Enemy;
     private Graph road;
+
+    private float debounce;
+    private string enemy;
+    private float count = 0;
+
     private float elapsedTime = 0;
 
     // Start is called before the first frame update
@@ -20,22 +20,26 @@ public class EnemySpawner : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            if (elapsedTime >= EnemyGap)
+            if (elapsedTime >= debounce)
             {
                 elapsedTime = 0;
-                InstanciateEnemy();
+                InstanciateEnemy(enemy);
             }
         }
     }
 
-    public void Init(Graph road)
+    public void Init(Graph road, string enemy, float debounce)
     {
         this.road = road;
+        this.enemy = enemy;
+        this.debounce = debounce;
     }
 
-    private void InstanciateEnemy()
+    private void InstanciateEnemy(string name)
     {
-        var enemy = Instantiate(Enemy, road.Source.Point, Quaternion.identity);
+        Debug.Log($"Instanciating {name}");
+        var enemyResource = Resources.Load<GameObject>($"Prefabs/Enemies/{name}");
+        var enemy = Instantiate(enemyResource, road.Source.Point, Quaternion.identity);
         enemy.GetComponent<EnemyMovement>().Init(road);
     }
 }

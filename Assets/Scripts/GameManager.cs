@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 
     public List<EnemySpawner> enemySpawners;
 
+    public bool initiated = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,22 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemySpawners.ForEach(s => s.Init(Road.Graph));
+        if (!initiated)
+        {
+            foreach (var enemy in FirstWave)
+            {
+                var spawner = gameObject.AddComponent<EnemySpawner>();
+                spawner.Init(Road.Graph, enemy.Key, enemy.Value);
+                enemySpawners.Add(spawner);
+            }
+
+            initiated = true;
+        }
     }
+
+    public Dictionary<string, int> FirstWave = new Dictionary<string, int>()
+    {
+        { "Capsule", 2 },
+        { "Sphere", 5 },
+    };
 }
