@@ -5,30 +5,56 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class Tower : MonoBehaviour
 {
+    public GameObject towerModel;
+    public PlaceableObject placeableObject;
+
     private bool active = false;
     private float lastAttack = 0;
     private List<Enemy> enemiesInsideRadius;
     private TowerData towerData;
+    private Animator towerAnimatorController;
+    private SphereCollider attackRangeCollider;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (towerModel != null)
+        {
+            towerAnimatorController = towerModel.GetComponent<Animator>();
+            if (towerAnimatorController != null) towerAnimatorController.SetInteger("AnimState", 0);
+        }
+
+        attackRangeCollider = GetComponent<SphereCollider>();
         enemiesInsideRadius = new List<Enemy>();
         towerData = gameObject.GetComponent<TowerData>();
+
+        placeableObject.OnChangeStateEvent += (placeableObject, state) =>
+        {
+            if (placeableObject.IsPlaced())
+            {
+                attackRangeCollider.enabled = true;
+                if (towerAnimatorController != null) towerAnimatorController.SetInteger("AnimState", 1);
+            }
+        };
     }
 
     // Update is called once per frame
     void Update()
     {
-        active = enemiesInsideRadius.Any();
+        if (towerAnimatorController != null)
+        {
+            Debug.Log(towerAnimatorController.GetCurrentAnimatorStateInfo(0).IsName("tower_idle"));
+        }
+
+        active = (enemiesInsideRadius.Count > 0);
 
         if (active)
         {
-            // Debug.Log("Tower activated");
             lastAttack += Time.deltaTime;
 
             if (lastAttack > towerData.AttackSpeed)
             {
+                if (towerAnimatorController != null) towerAnimatorController.SetInteger("AnimState", 2);
                 DamageEnemies();
                 lastAttack = 0;
             }
@@ -36,6 +62,7 @@ public class Tower : MonoBehaviour
         else
         {
             lastAttack = 0;
+            if (towerAnimatorController != null) towerAnimatorController.SetInteger("AnimState", 1);
         }
     }
 
@@ -56,7 +83,6 @@ public class Tower : MonoBehaviour
         }
     }
 
-    //Upon collision with another GameObject, this GameObject will reverse direction
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag != "Enemy") return;
@@ -64,17 +90,10 @@ public class Tower : MonoBehaviour
         enemiesInsideRadius.Add(other.gameObject.GetComponent<Enemy>());
     }
 
-    //Upon collision with another GameObject, this GameObject will reverse direction
     private void OnTriggerExit(Collider other)
     {
         if (other.tag != "Enemy") return;
 
         enemiesInsideRadius.Remove(other.gameObject.GetComponent<Enemy>());
-    }
-
-    //Upon collision with another GameObject, this GameObject will reverse direction
-    private void OnTriggerStay(Collider other)
-    {
-
     }
 }
