@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HudRoot: {fileID: 1644143303}
-  leukocytePrefab: {fileID: 968395336596275253, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+  leukocytePrefab: {fileID: 2443750403193308281, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
   gameManager: {fileID: 1362703829}
 --- !u!4 &220939710
 Transform:
@@ -185,11 +185,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlaceableObject: {fileID: 0}
   grid: {fileID: 612183854}
---- !u!1 &284262895 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6004505165393996472, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
-  m_PrefabInstance: {fileID: 6004505165132933975}
-  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &229206780
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.340044
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.000008583069
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 26.94403
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996472, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_Name
+      value: coronavirusEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
 --- !u!1 &418929697
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +333,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &612183853
 GameObject:
@@ -330,7 +382,7 @@ Transform:
   m_Children:
   - {fileID: 1117514928}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1010748950
 GameObject:
@@ -426,7 +478,7 @@ Transform:
   m_LocalScale: {x: 14.390853, y: 1.2389429, z: 4.1433}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1117514927
 GameObject:
@@ -488,7 +540,7 @@ Transform:
   m_Children:
   - {fileID: 220939710}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1362703829
 MonoBehaviour:
@@ -506,7 +558,7 @@ MonoBehaviour:
   Road: {fileID: 0}
   Grid: {fileID: 0}
   Started: 0
-  coronavirus: {fileID: 284262895}
+  coronavirus: {fileID: 0}
   infectionPercentage: 20
 --- !u!1 &1644143302
 GameObject:
@@ -555,6 +607,63 @@ Transform:
   m_Father: {fileID: 220939710}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1667622787
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2443750403193308280, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443750403193308280, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -43.22019
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443750403193308280, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000005722046
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443750403193308280, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.939232
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443750403193308280, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443750403193308280, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443750403193308280, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443750403193308280, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443750403193308280, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443750403193308280, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443750403193308280, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443750403193308281, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+      propertyPath: m_Name
+      value: tower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
 --- !u!1 &1907405309
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +758,7 @@ Transform:
   m_LocalScale: {x: 6.795922, y: 1.2389429, z: 16.265589}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2018817857
 GameObject:
@@ -734,63 +843,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 40, y: 30, z: 0}
---- !u!1001 &6004505165132933975
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -24.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 22.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6004505165393996472, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
-      propertyPath: m_Name
-      value: coronavirusEnemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
 --- !u!1001 &8983799047747875534
 PrefabInstance:
   m_ObjectHideFlags: 0

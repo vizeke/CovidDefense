@@ -29,14 +29,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Started)
-        {
-            if (waves == null)
-            {
-                waves = WaveData.Waves.GetEnumerator();
-                StartCoroutine(StartNextWave(null));
-            }
-        }
+        //if (Started)
+        //{
+        //    if (waves == null)
+        //    {
+        //        waves = WaveData.Waves.GetEnumerator();
+        //        StartCoroutine(StartNextWave(null));
+        //    }
+        //}
     }
 
     private void StartNextWaveAfterWaveFinished(Wave wave)

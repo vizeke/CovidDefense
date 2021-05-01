@@ -12,6 +12,10 @@ public class PlaceableObject : MonoBehaviour
 
     private List<GameObject> collidingObjects = new List<GameObject>();
 
+    public event OnChangeState OnChangeStateEvent;
+    public delegate void OnChangeState(PlaceableObject target, State state);
+
+
     public void SetPosition(Vector3 position)
     {
         transform.SetPositionAndRotation(position, transform.rotation);
@@ -22,10 +26,18 @@ public class PlaceableObject : MonoBehaviour
         return state == State.ValidPlace;
     }
 
+    public bool IsPlaced()
+    {
+        return state == State.Placed;
+    }
+
     public void PlaceIt()
     {
+        if (state == State.Placed) return;
+
         state = State.Placed;
         Collider.isTrigger = false;
+        if (OnChangeStateEvent != null) OnChangeStateEvent(this, state);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -37,9 +49,11 @@ public class PlaceableObject : MonoBehaviour
             collidingObjects.Add(other.gameObject);
         }
 
-        state = State.InvalidPlace;
-
-        Debug.Log(collidingObjects.Count + " state:" + state);
+        if (state != State.InvalidPlace)
+        {
+            state = State.InvalidPlace;
+            if (OnChangeStateEvent != null) OnChangeStateEvent(this, state);
+        }
     }
 
     public void OnTriggerExit(Collider other)
@@ -50,9 +64,8 @@ public class PlaceableObject : MonoBehaviour
         if (collidingObjects.Count == 0)
         {
             state = State.ValidPlace;
+            if (OnChangeStateEvent != null) OnChangeStateEvent(this, state);
         }
-
-        Debug.Log(collidingObjects.Count + " state:" + state);
     }
 
     
