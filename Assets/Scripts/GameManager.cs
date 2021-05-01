@@ -1,13 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameData GameData;
+    public WaveData WaveData;
     public RoadData Road;
+    public SnappingGrid Grid;
     public bool Started;
     private IEnumerator<Wave> waves;
     private Wave currentWave;
@@ -23,7 +22,7 @@ public class GameManager : MonoBehaviour
         {
             if (waves == null)
             {
-                waves = GameData.Waves.GetEnumerator();
+                waves = WaveData.Waves.GetEnumerator();
                 StartCoroutine(StartNextWave(null));
             }
         }
@@ -75,5 +74,38 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Wave Finished");
     }
-}
 
+    #region [ Health ]
+
+    public int infectionPercentage = 20;
+    private PlayerFund playerFund = new PlayerFund(100);
+
+    public int GetInfection()
+    {
+        return infectionPercentage;
+    }
+
+    public int ApplyInfectionDelta(int delta)
+    {
+        infectionPercentage += delta;
+        return infectionPercentage;
+    }
+    #endregion
+
+    #region [ Funds ]
+    public int GetFund()
+    {
+        return playerFund.Amount;
+    }
+
+    public bool Spend(int value)
+    {
+        return playerFund.Spend(value);
+    }
+
+    public void Earn(int value)
+    {
+        playerFund.Earn(value);
+    }
+    #endregion
+}

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameData : MonoBehaviour
+public class WaveData : MonoBehaviour
 {
     public IEnumerable<Wave> Waves = new List<Wave> {
         new Wave("First wave", FirstWave),
