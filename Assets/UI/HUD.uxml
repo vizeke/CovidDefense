@@ -12,5 +12,9 @@
             <ui:Label text="Adaptative Immune System" display-tooltip-when-elided="true" name="shopTitle" style="font-size: 16px; width: auto; white-space: nowrap; margin-right: 0; color: rgb(255, 255, 255); margin-bottom: 8px;" />
             <ui:Button text="Leukocyte ($20)" display-tooltip-when-elided="true" name="shopLeukocyte" style="font-size: 16px;" />
         </ui:VisualElement>
+        <ui:VisualElement name="Line" style="width: 100%; flex-direction: column; flex-grow: 0; flex-basis: auto; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; border-bottom-width: 1px; border-bottom-color: rgba(180, 180, 180, 0.41); height: 300px;" />
+        <ui:VisualElement name="Line" style="width: 100%; flex-direction: column; flex-grow: 0; flex-basis: auto; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; border-bottom-width: 1px; border-bottom-color: rgba(180, 180, 180, 0.41);">
+            <ui:Button text="Start Game&#10;" display-tooltip-when-elided="false" name="startGame" style="justify-content: center; font-size: 22px; -unity-font-style: bold;" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
