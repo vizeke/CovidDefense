@@ -209,8 +209,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 24.05581, y: 1, z: 1.9470396}
-  m_Center: {x: -3.7805185, y: 0, z: -3.71144}
+  m_Size: {x: 24.05581, y: 1, z: 6.41031}
+  m_Center: {x: -3.7805185, y: 0, z: -1.8271813}
 --- !u!4 &305008069
 Transform:
   m_ObjectHideFlags: 0
@@ -522,8 +522,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.9222, y: 1, z: 1.9470396}
-  m_Center: {x: -6.3096366, y: 0, z: -3.71144}
+  m_Size: {x: 8.86263, y: 1, z: 15.422972}
+  m_Center: {x: -8.279852, y: 0, z: -2.4789762}
 --- !u!4 &1245115732
 Transform:
   m_ObjectHideFlags: 0
@@ -547,9 +547,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1683765690}
-  - component: {fileID: 1683765689}
   - component: {fileID: 1683765691}
   - component: {fileID: 1683765692}
+  - component: {fileID: 1683765689}
   m_Layer: 0
   m_Name: towerAnchor
   m_TagString: Placeable
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5616ecbe4edd141aabf70a482727d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
+  state: 0
 --- !u!4 &1683765690
 Transform:
   m_ObjectHideFlags: 0

@@ -29,7 +29,6 @@ public class ObjectPlacer : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("1st button mouse up");
             PlaceCurrentObject();
         }
     }

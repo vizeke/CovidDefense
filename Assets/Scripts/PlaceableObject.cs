@@ -8,20 +8,13 @@ public class PlaceableObject : MonoBehaviour
     public State state = State.ValidPlace;
 
     private BoxCollider colliderCache = null;
-    public BoxCollider Collider { get => colliderCache ?? (colliderCache = GetComponent<BoxCollider>()); }
+    private BoxCollider Collider { get => colliderCache ?? (colliderCache = GetComponent<BoxCollider>()); }
 
     private List<GameObject> collidingObjects = new List<GameObject>();
 
     public void SetPosition(Vector3 position)
     {
         transform.SetPositionAndRotation(position, transform.rotation);
-    }
-
-    public void SetIsInValidPlace(bool isValid)
-    {
-        if (state == State.Placed) return;
-
-        state = isValid ? State.ValidPlace : State.InvalidPlace;
     }
 
     public bool CanBePlaced()
@@ -45,8 +38,6 @@ public class PlaceableObject : MonoBehaviour
         }
 
         state = State.InvalidPlace;
-
-        Debug.Log(collidingObjects.Count);
     }
 
     public void OnTriggerExit(Collider other)
@@ -58,8 +49,6 @@ public class PlaceableObject : MonoBehaviour
         {
             state = State.ValidPlace;
         }
-
-        Debug.Log(collidingObjects.Count);
     }
 
     
