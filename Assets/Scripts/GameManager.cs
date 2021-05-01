@@ -1,42 +1,79 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameData GameData;
     public RoadData Road;
-
-    public List<EnemySpawner> enemySpawners;
-
-    public bool initiated = false;
-
+    public bool Started;
+    private IEnumerator<Wave> waves;
+    private Wave currentWave;
+    private int WaveIndex = 0;
 
     // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    void Start() { }
 
     // Update is called once per frame
     void Update()
     {
-        if (!initiated)
+        if (Started)
         {
-            foreach (var enemy in FirstWave)
+            if (waves == null)
             {
-                var spawner = gameObject.AddComponent<EnemySpawner>();
-                spawner.Init(Road.Graph, enemy.Key, enemy.Value);
-                enemySpawners.Add(spawner);
+                waves = GameData.Waves.GetEnumerator();
+                StartCoroutine(StartNextWave(null));
             }
-
-            initiated = true;
         }
     }
 
-    public Dictionary<string, int> FirstWave = new Dictionary<string, int>()
+    private void StartNextWaveAfterWaveFinished(Wave wave)
     {
-        { "Capsule", 2 },
-        { "Sphere", 5 },
-    };
+        StartCoroutine(StartNextWave(wave));
+    }
+
+    private IEnumerator StartNextWave(Wave wave)
+    {
+        // Check if wave cleared
+        if (wave != null && wave.Defeated)
+        {
+            // TODO: Game Over
+        }
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(5);
+
+        waves.MoveNext();
+        currentWave = waves.Current;
+
+        if (currentWave == null)
+        {
+            // Victory
+        }
+        else
+        {
+            if (!currentWave.Started)
+            {
+                InstanciateWave(currentWave);
+            }
+        }
+    }
+
+    private void InstanciateWave(Wave wave)
+    {
+        Debug.Log($"Instanciating wave: {wave.Name}");
+        var waveBehaviour = gameObject.AddComponent<WaveBehaviour>();
+
+        waveBehaviour.OnWaveFinishedEvent += StartNextWaveAfterWaveFinished;
+
+        waveBehaviour.StartWave(Road.Graph, wave);
+    }
+
+    public void WaveFinished()
+    {
+        Debug.Log("Wave Finished");
+    }
 }
+

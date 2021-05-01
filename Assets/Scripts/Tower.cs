@@ -24,7 +24,7 @@ public class Tower : MonoBehaviour
 
         if (active)
         {
-            Debug.Log("Tower activated");
+            // Debug.Log("Tower activated");
             lastAttack += Time.deltaTime;
 
             if (lastAttack > towerData.AttackSpeed)
@@ -41,8 +41,8 @@ public class Tower : MonoBehaviour
 
     private void DamageEnemies()
     {
-        Debug.Log("Damaging enemies");
-        Debug.Log($"{enemiesInsideRadius.Count()} enemies on sight");
+        // Debug.Log("Damaging enemies");
+        // Debug.Log($"{enemiesInsideRadius.Count()} enemies on sight");
 
         if (towerData.AreaAttack)
         {

@@ -21,27 +21,30 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 1
-        float currentTimeOnPath = Time.time - currentSourceSwitchTime;
-        gameObject.transform.position = Vector3.Lerp(currentSource.Point, currentDestination.Point, currentTimeOnPath / timeForCurrentPath);
-        // 3 
-        if (gameObject.transform.position.Equals(currentDestination.Point))
+        if (road != null)
         {
-            // TODO: check sink
-            if (currentDestination.Edges.Count() > 0)
+            // 1
+            float currentTimeOnPath = Time.time - currentSourceSwitchTime;
+            gameObject.transform.position = Vector3.Lerp(currentSource.Point, currentDestination.Point, currentTimeOnPath / timeForCurrentPath);
+            // 3 
+            if (gameObject.transform.position.Equals(currentDestination.Point))
             {
-                // 3.a 
-                CalculateNextPath(currentDestination);
-                // TODO: Rotate into move direction
-            }
-            else
-            {
-                // 3.b 
-                Destroy(gameObject);
+                // TODO: check sink
+                if (currentDestination.Edges.Count() > 0)
+                {
+                    // 3.a 
+                    CalculateNextPath(currentDestination);
+                    // TODO: Rotate into move direction
+                }
+                else
+                {
+                    // 3.b 
+                    Destroy(gameObject);
 
-                // AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-                // AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
-                // TODO: deduct health
+                    // AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+                    // AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
+                    // TODO: deduct health
+                }
             }
         }
     }

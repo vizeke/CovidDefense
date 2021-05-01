@@ -9,16 +9,22 @@ public class Enemy : MonoBehaviour
         Dead
     }
 
+    private Graph road;
     private EnemyData enemyData;
     private EnemyMovement enemyMovement;
     private EnemyStatus status;
+
+    public event Onkill OnKillEvent;
+    public delegate void Onkill(Enemy instance);
 
     // Start is called before the first frame update
     void Start()
     {
         enemyData = gameObject.GetComponent<EnemyData>();
         enemyMovement = gameObject.GetComponent<EnemyMovement>();
+
         status = EnemyStatus.Alive;
+        enemyMovement.Init(road);
     }
 
     // Update is called once per frame
@@ -29,6 +35,11 @@ public class Enemy : MonoBehaviour
 
     public bool IsDead { get => status == EnemyStatus.Dead; }
 
+    public void Init(Graph road)
+    {
+        this.road = road;
+    }
+
     public EnemyStatus TakeHit(float damage)
     {
         enemyData.Health -= damage;
@@ -38,6 +49,7 @@ public class Enemy : MonoBehaviour
             Debug.Log("Enemy killed");
             status = EnemyStatus.Dead;
             Destroy(gameObject);
+            this.OnKillEvent(this);
         }
 
         return status;
