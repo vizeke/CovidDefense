@@ -5,12 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public WaveData WaveData;
-    public RoadData Road;
     public SnappingGrid Grid;
     public bool Started;
     private IEnumerator<Wave> waves;
     private Wave currentWave;
-    private int WaveIndex = 0;
+    private Graph road;
 
     // Start is called before the first frame update
     void Start() { }
@@ -22,6 +21,7 @@ public class GameManager : MonoBehaviour
         {
             if (waves == null)
             {
+                road = RoadProvider.GetDefaultRoad(Grid);
                 waves = WaveData.Waves.GetEnumerator();
                 StartCoroutine(StartNextWave(null));
             }
@@ -67,12 +67,17 @@ public class GameManager : MonoBehaviour
 
         waveBehaviour.OnWaveFinishedEvent += StartNextWaveAfterWaveFinished;
 
-        waveBehaviour.StartWave(Road.Graph, wave);
+        waveBehaviour.StartWave(road, wave);
     }
 
     public void WaveFinished()
     {
         Debug.Log("Wave Finished");
+    }
+
+    public void StartGame()
+    {
+        this.Started = true;
     }
 
     #region [ Health ]

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class UIManager : MonoBehaviour
     private Label infectionLabel;
     private Label fundLabel;
     private Button leukocytesButton;
+    private Button startButton;
     #endregion
 
     void OnEnable()
@@ -22,8 +24,10 @@ public class UIManager : MonoBehaviour
         infectionLabel = root.Q<Label>("infectionValue");
         fundLabel = root.Q<Label>("ATPValue");
         leukocytesButton = root.Q<Button>("shopLeukocyte");
+        startButton = root.Q<Button>("startGame");
 
         leukocytesButton.RegisterCallback<ClickEvent>(ev => buyLeukocyte());
+        startButton.RegisterCallback<ClickEvent>(Event => gameManager.StartGame());
 
         UpdateInfectionDisplay();
         UpdateFundDisplay();
