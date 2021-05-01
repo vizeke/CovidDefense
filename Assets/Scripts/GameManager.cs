@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator<Wave> waves;
     private Wave currentWave;
     private Graph road;
+    private List<GameObject> roadBlocks;
 
     // Start is called before the first frame update
     void Start() { }
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
             if (waves == null)
             {
                 road = RoadProvider.GetDefaultRoad(Grid);
+                roadBlocks = RoadProvider.GetRoadBlocks(road);
                 waves = WaveData.Waves.GetEnumerator();
                 StartCoroutine(StartNextWave(null));
             }
