@@ -12,8 +12,19 @@ public class GameManager : MonoBehaviour
     private Wave currentWave;
     private int WaveIndex = 0;
 
+    public GameObject coronavirus;
+
     // Start is called before the first frame update
-    void Start() { }
+    //void Start() {
+    //    StartCoroutine(testDie());
+    //}
+
+    //IEnumerator testDie()
+    //{
+    //    yield return new WaitForSeconds(3);
+
+    //    coronavirus.GetComponent<Enemy>().Die();
+    //}
 
     // Update is called once per frame
     void Update()
