@@ -12,11 +12,13 @@ public class WaveData : MonoBehaviour
     {
         new SpawningEnemy("Capsule", 2, 5, 0 ),
         new SpawningEnemy("Sphere", 4, 2, 5 ),
+        new SpawningEnemy("coronavirusEnemy", 5, 4, 8 ),
     };
 
     public static List<SpawningEnemy> SecondWave = new List<SpawningEnemy>
     {
         new SpawningEnemy("Sphere", 3, 10, 0 ),
         new SpawningEnemy("Capsule", 2, 20, 5 ),
+        new SpawningEnemy("coronavirusEnemy", 6, 30, 0 ),
     };
 }
