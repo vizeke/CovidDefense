@@ -38,6 +38,8 @@ public class PlaceableObject : MonoBehaviour
         }
 
         state = State.InvalidPlace;
+
+        Debug.Log(collidingObjects.Count + " state:" + state);
     }
 
     public void OnTriggerExit(Collider other)
@@ -49,6 +51,8 @@ public class PlaceableObject : MonoBehaviour
         {
             state = State.ValidPlace;
         }
+
+        Debug.Log(collidingObjects.Count + " state:" + state);
     }
 
     

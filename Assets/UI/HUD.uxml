@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="MainWrapper" style="height: 100%; width: 20%; align-items: flex-start; right: 0; position: absolute; background-color: rgba(58, 58, 58, 0.89); border-left-width: 1px; border-left-color: rgb(142, 142, 142);">
+        <ui:VisualElement name="Line" style="width: 100%; flex-direction: column; flex-grow: 0; flex-basis: auto; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; border-bottom-width: 3px; border-bottom-color: rgba(255, 255, 255, 0.41); margin-bottom: 8px;">
+            <ui:Label text="Infection (%)" display-tooltip-when-elided="true" name="infectionLabel" style="font-size: 24px; width: 76px; white-space: nowrap; margin-right: 16px; color: rgb(255, 255, 255);" />
+            <ui:Label text="00 / 100" display-tooltip-when-elided="true" name="infectionValue" style="color: rgb(255, 73, 73); font-size: 20px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Line" style="width: 100%; flex-direction: row; flex-grow: 0; flex-basis: auto; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; border-bottom-width: 1px; border-bottom-color: rgba(255, 255, 255, 0.41);">
+            <ui:Label text="ATP $" display-tooltip-when-elided="true" name="ATPLabel" style="font-size: 24px; width: 76px; white-space: nowrap; margin-right: 16px; color: rgb(255, 255, 255);" />
+            <ui:Label text="0" display-tooltip-when-elided="true" name="ATPValue" style="white-space: nowrap; font-size: 24px; color: rgb(255, 165, 0);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Line" style="width: 100%; flex-direction: column; flex-grow: 0; flex-basis: auto; padding-left: 16px; padding-right: 16px; padding-top: 8px; padding-bottom: 8px; border-bottom-width: 1px; border-bottom-color: rgba(255, 255, 255, 0.41);">
+            <ui:Label text="Adaptative Immune System" display-tooltip-when-elided="true" name="shopTitle" style="font-size: 16px; width: auto; white-space: nowrap; margin-right: 0; color: rgb(255, 255, 255); margin-bottom: 8px;" />
+            <ui:Button text="Leukocyte ($20)" display-tooltip-when-elided="true" name="shopLeukocyte" style="font-size: 16px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
