@@ -3,6 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Enemy : MonoBehaviour
 {
+    public GameObject enemyModel;
+    public ParticleSystem deathParticles;
+
     public enum EnemyStatus
     {
         Alive,
@@ -27,12 +30,6 @@ public class Enemy : MonoBehaviour
         enemyMovement.Init(road);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public bool IsDead { get => status == EnemyStatus.Dead; }
 
     public void Init(Graph road)
@@ -47,11 +44,23 @@ public class Enemy : MonoBehaviour
         if (enemyData.Health <= 0)
         {
             Debug.Log("Enemy killed");
-            status = EnemyStatus.Dead;
-            Destroy(gameObject);
-            this.OnKillEvent(this);
+            Die();
         }
 
         return status;
+    }
+
+    public void Die()
+    {
+        status = EnemyStatus.Dead;
+
+        if (enemyModel != null) enemyModel.SetActive(false);
+
+        if (OnKillEvent != null) this.OnKillEvent(this);
+
+        if (deathParticles != null) deathParticles.gameObject.SetActive(true);
+
+        var totalDuration = (deathParticles != null) ? (deathParticles.duration + deathParticles.startLifetime) : 0;
+        Destroy(gameObject, totalDuration);
     }
 }

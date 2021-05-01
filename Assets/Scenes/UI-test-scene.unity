@@ -185,6 +185,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlaceableObject: {fileID: 0}
   grid: {fileID: 612183854}
+--- !u!1 &284262895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6004505165393996472, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+  m_PrefabInstance: {fileID: 6004505165132933975}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &418929697
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,9 +502,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033ea5e82baf24140bdabf3aa0e3a5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameData: {fileID: 0}
+  WaveData: {fileID: 0}
   Road: {fileID: 0}
+  Grid: {fileID: 0}
   Started: 0
+  coronavirus: {fileID: 284262895}
   infectionPercentage: 20
 --- !u!1 &1644143302
 GameObject:
@@ -727,6 +734,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 40, y: 30, z: 0}
+--- !u!1001 &6004505165132933975
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 22.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996455, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004505165393996472, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
+      propertyPath: m_Name
+      value: coronavirusEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0c62cefecf71f1d469564f0b6e61c5a2, type: 3}
 --- !u!1001 &8983799047747875534
 PrefabInstance:
   m_ObjectHideFlags: 0
