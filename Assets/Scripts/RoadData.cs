@@ -11,9 +11,9 @@ public class RoadData : MonoBehaviour
 
         // Vertices
         Graph.AddVertex(new Vertex("a", new Vector3(0, 0, 0)));
-        Graph.AddVertex(new Vertex("b", new Vector3(0, 5, 5)));
+        Graph.AddVertex(new Vertex("b", new Vector3(0, 0, 5)));
         Graph.AddVertex(new Vertex("c", new Vector3(5, 0, 5)));
-        Graph.AddVertex(new Vertex("d", new Vector3(5, 5, 10)));
+        Graph.AddVertex(new Vertex("d", new Vector3(5, 0, 10)));
 
         // Edges
         Graph.AddAnEdge("a", "b");

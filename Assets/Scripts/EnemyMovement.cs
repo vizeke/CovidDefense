@@ -1,22 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public RoadData Road;
-    public float speed = 1.0f;
-
+    private Graph road;
     private Vertex currentSource = null;
     private float currentSourceSwitchTime;
     private Vertex currentDestination = null;
     private float timeForCurrentPath;
 
     // Start is called before the first frame update
-    void Start()
+    void Start() { }
+
+    public void Init(Graph road)
     {
-        CalculateNextPath(Road.Graph.Source);
+        this.road = road;
+        CalculateNextPath(road.Source);
     }
 
     // Update is called once per frame
@@ -40,8 +39,6 @@ public class EnemyMovement : MonoBehaviour
                 // 3.b 
                 Destroy(gameObject);
 
-                Application.Quit();
-
                 // AudioSource audioSource = gameObject.GetComponent<AudioSource>();
                 // AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
                 // TODO: deduct health
@@ -53,10 +50,10 @@ public class EnemyMovement : MonoBehaviour
     {
         // 1 
         currentSource = source;
-        currentDestination = Road.Graph.AdjacencyList.First(e => e.Name == currentSource.Edges.First());
+        currentDestination = road.AdjacencyList.First(e => e.Name == currentSource.Edges.First());
         currentSourceSwitchTime = Time.time;
 
         float pathLength = Vector3.Distance(source.Point, currentDestination.Point);
-        timeForCurrentPath = pathLength / speed;
+        timeForCurrentPath = pathLength / gameObject.GetComponent<EnemyData>().Speed;
     }
 }
