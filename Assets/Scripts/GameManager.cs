@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour
     private List<GameObject> roadBlocks;
 
     public GameObject coronavirus;
+
+    public event OnInfectionChange OnInfectionChangeEvent;
+    public delegate void OnInfectionChange();
 
     // Start is called before the first frame update
     //void Start() {
@@ -41,19 +45,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void StartNextWaveAfterWaveFinished(Wave wave)
-    {
-        StartCoroutine(StartNextWave(wave));
-    }
-
     private IEnumerator StartNextWave(Wave wave)
     {
-        // Check if wave cleared
-        if (wave != null && wave.Defeated)
-        {
-            // TODO: Game Over
-        }
-
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(5);
 
@@ -62,7 +55,7 @@ public class GameManager : MonoBehaviour
 
         if (currentWave == null)
         {
-            // Victory
+            // TODO: Victory
         }
         else
         {
@@ -77,8 +70,9 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"Instanciating wave: {wave.Name}");
         var waveBehaviour = gameObject.AddComponent<WaveBehaviour>();
+        waveBehaviour.gameManager = this;
 
-        waveBehaviour.OnWaveFinishedEvent += StartNextWaveAfterWaveFinished;
+        waveBehaviour.OnWaveFinishedEvent += (wave) => StartCoroutine(StartNextWave(wave));
 
         waveBehaviour.StartWave(road, wave);
     }
@@ -95,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     #region [ Health ]
 
-    public int infectionPercentage = 20;
+    public int infectionPercentage = 0;
     private PlayerFund playerFund = new PlayerFund(100);
 
     public int GetInfection()
@@ -106,6 +100,14 @@ public class GameManager : MonoBehaviour
     public int ApplyInfectionDelta(int delta)
     {
         infectionPercentage += delta;
+
+        if (infectionPercentage >= 100)
+        {
+            SceneManager.LoadScene("GameOverScene", LoadSceneMode.Single);
+        }
+
+        OnInfectionChangeEvent();
+
         return infectionPercentage;
     }
     #endregion

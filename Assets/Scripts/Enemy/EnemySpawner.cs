@@ -3,12 +3,16 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private Graph road;
+    [HideInInspector]
+    public GameManager gameManager;
 
+    private Graph road;
     private SpawningEnemy spawningEnemy;
     private float elapsedTime = 0;
     private bool started = false;
     private int enemiesSpawned = 0;
+    private int enemiesToTheEnd = 0;
+    private int deadEnemies = 0;
 
     private List<Enemy> enemies = new List<Enemy>();
 
@@ -37,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public bool SpanwerCleared { get => enemiesSpawned > 0 && enemies.Count == 0; }
+    public bool SpanwerFinished { get => deadEnemies + enemiesToTheEnd == spawningEnemy.Amount; }
 
     public void Init(Graph road, SpawningEnemy spawningEnemy)
     {
@@ -53,10 +57,18 @@ public class EnemySpawner : MonoBehaviour
         var enemyResource = Resources.Load<GameObject>($"Prefabs/Enemies/{name}");
         var enemyGameObject = Instantiate(enemyResource, road.Source.Point, Quaternion.identity);
         var enemy = enemyGameObject.GetComponent<Enemy>();
+        var enemyMovement = enemyGameObject.GetComponent<EnemyMovement>();
+        enemyMovement.gameManager = this.gameManager;
 
-        enemy.OnKillEvent += (enemy) =>
+        enemy.OnDeathEvent += (enemy) =>
         {
+            deadEnemies++;
             enemies.Remove(enemy);
+        };
+
+        enemyMovement.OnEnemyToTheEndEvent += (enemyMovement) =>
+        {
+            enemiesToTheEnd++;
         };
 
         enemy.Init(road);

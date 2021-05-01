@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -8,9 +9,18 @@ public class EnemyMovement : MonoBehaviour
     private float currentSourceSwitchTime;
     private Vertex currentDestination = null;
     private float timeForCurrentPath;
+    [HideInInspector]
+    public GameManager gameManager;
+    private EnemyData enemyData;
+
+    public event OnEnemyToTheEnd OnEnemyToTheEndEvent;
+    public delegate void OnEnemyToTheEnd(EnemyMovement instance);
 
     // Start is called before the first frame update
-    void Start() { }
+    void Start()
+    {
+        enemyData = gameObject.GetComponent<EnemyData>();
+    }
 
     public void Init(Graph road)
     {
@@ -38,8 +48,9 @@ public class EnemyMovement : MonoBehaviour
                 }
                 else
                 {
+                    InfectPlayer();
                     // 3.b 
-                    Destroy(gameObject);
+
 
                     // AudioSource audioSource = gameObject.GetComponent<AudioSource>();
                     // AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
@@ -47,6 +58,13 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void InfectPlayer()
+    {
+        gameManager.ApplyInfectionDelta(enemyData.Infection);
+        Destroy(gameObject);
+        OnEnemyToTheEndEvent(this);
     }
 
     private void CalculateNextPath(Vertex source)

@@ -114,8 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 5
-  Speed: 1
-  Damage: 1
+  Speed: 50
+  Infection: 1
 --- !u!114 &1761504110488818913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94812a27f917d28448ca5616be6baaf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!54 &6184789538609433087
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -156,3 +157,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b25bff5f44e6a48b394a05323635ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyModel: {fileID: 0}
+  deathParticles: {fileID: 0}

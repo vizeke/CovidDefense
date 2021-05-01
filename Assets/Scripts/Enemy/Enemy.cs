@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     private EnemyMovement enemyMovement;
     private EnemyStatus status;
 
-    public event Onkill OnKillEvent;
+    public event Onkill OnDeathEvent;
     public delegate void Onkill(Enemy instance);
 
     // Start is called before the first frame update
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
 
         if (enemyModel != null) enemyModel.SetActive(false);
 
-        if (OnKillEvent != null) this.OnKillEvent(this);
+        if (OnDeathEvent != null) this.OnDeathEvent(this);
 
         if (deathParticles != null) deathParticles.gameObject.SetActive(true);
 

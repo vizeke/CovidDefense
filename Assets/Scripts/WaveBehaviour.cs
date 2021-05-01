@@ -4,12 +4,14 @@ using UnityEngine;
 public class WaveBehaviour : MonoBehaviour
 {
     public List<EnemySpawner> enemySpawners = new List<EnemySpawner>();
+    public event OnWaveFinished OnWaveFinishedEvent;
+    public delegate void OnWaveFinished(Wave instance);
+    [HideInInspector]
+    public GameManager gameManager;
+
     private Graph road;
     private Wave wave;
     private float clearTime = 0;
-
-    public event OnWaveFinished OnWaveFinishedEvent;
-    public delegate void OnWaveFinished(Wave instance);
 
     // Update is called once per frame
     void Update()
@@ -17,19 +19,19 @@ public class WaveBehaviour : MonoBehaviour
         if (wave != null && wave.Started && !wave.Finished)
         {
             clearTime += Time.deltaTime;
-            if (!wave.Cleared && WaveCleared)
+            if (!wave.Finished && WaveFinished)
             {
                 wave.Clear(clearTime);
             }
 
-            if (wave.Cleared)
+            if (wave.Finished)
             {
                 OnWaveFinishedEvent(this.wave);
             }
         }
     }
 
-    public bool WaveCleared { get => enemySpawners.TrueForAll(es => es.SpanwerCleared); }
+    public bool WaveFinished { get => enemySpawners.TrueForAll(es => es.SpanwerFinished); }
 
     public void StartWave(Graph road, Wave wave)
     {
@@ -42,6 +44,7 @@ public class WaveBehaviour : MonoBehaviour
         foreach (var enemy in wave.Spawners)
         {
             var spawner = gameObject.AddComponent<EnemySpawner>();
+            spawner.gameManager = gameManager;
             spawner.Init(road, enemy);
             enemySpawners.Add(spawner);
         }

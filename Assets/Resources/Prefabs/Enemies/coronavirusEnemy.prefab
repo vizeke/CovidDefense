@@ -4882,8 +4882,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 5
-  Speed: 1
-  Damage: 1
+  Speed: 50
+  Infection: 10
 --- !u!114 &6004505165393996454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4896,6 +4896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94812a27f917d28448ca5616be6baaf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
 --- !u!95 &6004505165223938706
 Animator:
   serializedVersion: 3

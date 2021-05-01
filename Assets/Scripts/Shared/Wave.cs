@@ -6,7 +6,6 @@ public class Wave
     public List<SpawningEnemy> Spawners;
     private bool started = false;
     private bool finished = false;
-    private bool cleared = false;
     private float clearTime = 0;
 
     public Wave(string name, List<SpawningEnemy> spawners)
@@ -17,8 +16,6 @@ public class Wave
 
     public bool Started { get => started; }
     public bool Finished { get => finished; }
-    public bool Cleared { get => finished && cleared; }
-    public bool Defeated { get => finished && !cleared; }
 
     public void Start()
     {
@@ -28,7 +25,6 @@ public class Wave
     public void Clear(float time)
     {
         finished = true;
-        cleared = true;
         clearTime = time;
     }
 }
