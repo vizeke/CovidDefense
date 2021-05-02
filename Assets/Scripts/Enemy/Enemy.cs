@@ -64,4 +64,6 @@ public class Enemy : MonoBehaviour
         var totalDuration = (deathParticles != null) ? (deathParticles.duration + deathParticles.startLifetime) : 0;
         Destroy(gameObject, totalDuration);
     }
+
+    public int ATPValue { get => enemyData.ATPValue; }
 }

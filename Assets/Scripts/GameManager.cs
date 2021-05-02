@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public event OnInfectionChange OnInfectionChangeEvent;
     public delegate void OnInfectionChange();
 
+    public event OnFundsChange OnFundsChangeEvent;
+    public delegate void OnFundsChange();
+
     // Start is called before the first frame update
     //void Start() {
     //    StartCoroutine(testDie());
@@ -125,6 +128,8 @@ public class GameManager : MonoBehaviour
 
     public void Earn(int value)
     {
+        OnFundsChangeEvent();
+
         playerFund.Earn(value);
     }
     #endregion

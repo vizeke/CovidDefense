@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
         UpdateFundDisplay();
 
         gameManager.OnInfectionChangeEvent += () => UpdateInfectionDisplay();
+        gameManager.OnFundsChangeEvent += () => UpdateFundDisplay();
     }
 
     private void buyLeukocyte()

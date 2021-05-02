@@ -63,6 +63,7 @@ public class EnemySpawner : MonoBehaviour
         enemy.OnDeathEvent += (enemy) =>
         {
             deadEnemies++;
+            this.gameManager.Earn(enemy.ATPValue);
             enemies.Remove(enemy);
         };
 
