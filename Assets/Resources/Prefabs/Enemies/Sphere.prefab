@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 5
-  Speed: 50
+  Speed: 4
   Infection: 1
 --- !u!114 &-9039653037614389614
 MonoBehaviour:

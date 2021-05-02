@@ -63,8 +63,8 @@ public class EnemyMovement : MonoBehaviour
     private void InfectPlayer()
     {
         gameManager.ApplyInfectionDelta(enemyData.Infection);
-        Destroy(gameObject);
         OnEnemyToTheEndEvent(this);
+        Destroy(gameObject);
     }
 
     private void CalculateNextPath(Vertex source)

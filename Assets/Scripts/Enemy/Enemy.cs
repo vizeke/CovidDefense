@@ -41,9 +41,8 @@ public class Enemy : MonoBehaviour
     {
         enemyData.Health -= damage;
 
-        if (enemyData.Health <= 0)
+        if (enemyData.Health <= 0 && status == EnemyStatus.Alive)
         {
-            Debug.Log("Enemy killed");
             Die();
         }
 
@@ -52,6 +51,8 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        Debug.Log($"Enemy killed {this.gameObject.GetInstanceID()}");
+
         status = EnemyStatus.Dead;
 
         if (enemyModel != null) enemyModel.SetActive(false);

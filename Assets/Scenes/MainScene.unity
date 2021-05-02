@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HudRoot: {fileID: 1935012952}
-  leukocytePrefab: {fileID: 968395336596275253, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
+  leukocytePrefab: {fileID: 2443750403193308281, guid: a4120c29c2f3a58408fe5192f3fae42f, type: 3}
   gameManager: {fileID: 1941519209}
 --- !u!1001 &1852045703
 PrefabInstance:

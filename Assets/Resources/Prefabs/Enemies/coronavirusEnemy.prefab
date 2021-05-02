@@ -4881,9 +4881,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d5e328be79446948af27c62c127d03d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 5
-  Speed: 50
-  Infection: 10
+  Health: 10
+  Speed: 5
+  Infection: 1
 --- !u!114 &6004505165393996454
 MonoBehaviour:
   m_ObjectHideFlags: 0

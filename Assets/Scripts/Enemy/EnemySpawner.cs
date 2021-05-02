@@ -45,8 +45,8 @@ public class EnemySpawner : MonoBehaviour
 
     public void Init(Graph road, SpawningEnemy spawningEnemy)
     {
-        this.road = road;
         this.spawningEnemy = spawningEnemy;
+        this.road = road;
     }
 
     private void InstanciateEnemy(string name)

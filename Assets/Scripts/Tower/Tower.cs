@@ -43,7 +43,7 @@ public class Tower : MonoBehaviour
     {
         if (towerAnimatorController != null)
         {
-            Debug.Log(towerAnimatorController.GetCurrentAnimatorStateInfo(0).IsName("tower_idle"));
+            // Debug.Log(towerAnimatorController.GetCurrentAnimatorStateInfo(0).IsName("tower_idle"));
         }
 
         active = (enemiesInsideRadius.Count > 0);
@@ -75,7 +75,6 @@ public class Tower : MonoBehaviour
         {
             enemiesInsideRadius.ForEach(e =>
             {
-                Debug.Log(e);
                 e.TakeHit(towerData.Damage);
             });
 

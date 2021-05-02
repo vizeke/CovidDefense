@@ -10,8 +10,8 @@ public class WaveData : MonoBehaviour
 
     public static List<SpawningEnemy> FirstWave = new List<SpawningEnemy>
     {
-        new SpawningEnemy("Capsule", 2, 5, 0 ),
-        new SpawningEnemy("Sphere", 1, 2, 5 ),
+        // new SpawningEnemy("Capsule", 2, 5, 0 ),
+        // new SpawningEnemy("Sphere", 1, 2, 5 ),
         new SpawningEnemy("coronavirusEnemy", 1, 4, 1 ),
     };
 
